@@ -1,0 +1,53 @@
+[
+    {
+        "label": "given",
+        "importPath": "behave",
+        "description": "behave",
+        "isExtraImport": true,
+        "detail": "behave",
+        "documentation": {}
+    },
+    {
+        "label": "then",
+        "importPath": "behave",
+        "description": "behave",
+        "isExtraImport": true,
+        "detail": "behave",
+        "documentation": {}
+    },
+    {
+        "label": "when",
+        "importPath": "behave",
+        "description": "behave",
+        "isExtraImport": true,
+        "detail": "behave",
+        "documentation": {}
+    },
+    {
+        "label": "step_given_que_eu_tenho_um_usuario_cadastrado",
+        "kind": 2,
+        "importPath": "features.steps.login_steps",
+        "description": "features.steps.login_steps",
+        "peekOfCode": "def step_given_que_eu_tenho_um_usuario_cadastrado(context):\n    # Implemente a lógica para garantir que um usuário está cadastrado\n    pass\n@when('eu faço login com \"{email}\" e \"{senha}\"')\ndef step_when_eu_faco_login_com_email_e_senha(context, email, senha):\n    # Implemente a lógica para fazer login com o email e senha fornecidos\n    pass\n@then(\"devo ver mensagem de boas vindas\")\ndef step_then_devo_ver_mensagem_de_boas_vindas(context):\n    # Implemente a lógica para verificar se a mensagem de boas-vindas é exibida",
+        "detail": "features.steps.login_steps",
+        "documentation": {}
+    },
+    {
+        "label": "step_when_eu_faco_login_com_email_e_senha",
+        "kind": 2,
+        "importPath": "features.steps.login_steps",
+        "description": "features.steps.login_steps",
+        "peekOfCode": "def step_when_eu_faco_login_com_email_e_senha(context, email, senha):\n    # Implemente a lógica para fazer login com o email e senha fornecidos\n    pass\n@then(\"devo ver mensagem de boas vindas\")\ndef step_then_devo_ver_mensagem_de_boas_vindas(context):\n    # Implemente a lógica para verificar se a mensagem de boas-vindas é exibida\n    pass",
+        "detail": "features.steps.login_steps",
+        "documentation": {}
+    },
+    {
+        "label": "step_then_devo_ver_mensagem_de_boas_vindas",
+        "kind": 2,
+        "importPath": "features.steps.login_steps",
+        "description": "features.steps.login_steps",
+        "peekOfCode": "def step_then_devo_ver_mensagem_de_boas_vindas(context):\n    # Implemente a lógica para verificar se a mensagem de boas-vindas é exibida\n    pass",
+        "detail": "features.steps.login_steps",
+        "documentation": {}
+    }
+]

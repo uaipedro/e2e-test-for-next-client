@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "e2e-test-for-next-client"
+version = "0.1.0"
+description = ""
+authors = ["uaipedro <pedromambelli@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+behave = "^1.2.6"
+selenium = "^4.16.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
