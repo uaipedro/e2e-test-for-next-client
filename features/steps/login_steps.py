@@ -7,7 +7,7 @@ from behave import given, then, when
 
 @given("que eu tenho um usuário cadastrado")
 def step_given_que_eu_tenho_um_usuario_cadastrado(context):
-    context.driver.get("https://next-client-with-login.vercel.app/")
+    context.driver.get("https://next-client-with-login.vercel.app/login")
     pass
 
 

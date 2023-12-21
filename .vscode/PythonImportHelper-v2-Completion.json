@@ -17,11 +17,43 @@
         "documentation": {}
     },
     {
+        "label": "loads",
+        "importPath": "json",
+        "description": "json",
+        "isExtraImport": true,
+        "detail": "json",
+        "documentation": {}
+    },
+    {
         "label": "TestCase",
         "importPath": "unittest",
         "description": "unittest",
         "isExtraImport": true,
         "detail": "unittest",
+        "documentation": {}
+    },
+    {
+        "label": "given",
+        "importPath": "behave",
+        "description": "behave",
+        "isExtraImport": true,
+        "detail": "behave",
+        "documentation": {}
+    },
+    {
+        "label": "then",
+        "importPath": "behave",
+        "description": "behave",
+        "isExtraImport": true,
+        "detail": "behave",
+        "documentation": {}
+    },
+    {
+        "label": "when",
+        "importPath": "behave",
+        "description": "behave",
+        "isExtraImport": true,
+        "detail": "behave",
         "documentation": {}
     },
     {
@@ -77,7 +109,7 @@
         "kind": 2,
         "importPath": "features.steps.login_steps",
         "description": "features.steps.login_steps",
-        "peekOfCode": "def step_given_que_eu_tenho_um_usuario_cadastrado(context):\n    context.driver.get(\"https://next-client-with-login.vercel.app/\")\n    pass\n@when('eu faço login com \"{email}\" e \"{senha}\"')\ndef step_when_eu_faco_login_com_email_e_senha(context, email, senha):\n    texto = loads(context.text)\n    context.driver.find_element(\"id\", \"email\").send_keys(texto[\"email\"])\n    context.driver.find_element(\"id\", \"password\").send_keys(texto[\"senha\"])\n    context.driver.find_element(\"xpath\", \"//button[@type='submit']\").click()\n    time.sleep(1)",
+        "peekOfCode": "def step_given_que_eu_tenho_um_usuario_cadastrado(context):\n    context.driver.get(\"https://next-client-with-login.vercel.app/login\")\n    pass\n@when('eu faço login com \"{email}\" e \"{senha}\"')\ndef step_when_eu_faco_login_com_email_e_senha(context, email, senha):\n    texto = loads(context.text)\n    context.driver.find_element(\"id\", \"email\").send_keys(texto[\"email\"])\n    context.driver.find_element(\"id\", \"password\").send_keys(texto[\"senha\"])\n    context.driver.find_element(\"xpath\", \"//button[@type='submit']\").click()\n    time.sleep(1)",
         "detail": "features.steps.login_steps",
         "documentation": {}
     },
@@ -97,6 +129,33 @@
         "description": "features.steps.login_steps",
         "peekOfCode": "def step_then_devo_ver_mensagem_de_boas_vindas(context, message):\n    welcome_message = context.driver.find_element(\"xpath\", \"//h2\").text.lower()\n    TestCase().assertIn(message.lower().replace('\"', \"\"), welcome_message)\n    pass",
         "detail": "features.steps.login_steps",
+        "documentation": {}
+    },
+    {
+        "label": "step_given_que_eu_estou_na_pagina_de_cadastro",
+        "kind": 2,
+        "importPath": "features.steps.singup_steps",
+        "description": "features.steps.singup_steps",
+        "peekOfCode": "def step_given_que_eu_estou_na_pagina_de_cadastro(context):\n    # Implemente a lógica para navegar até a página de cadastro\n    context.driver.get(\"https://next-client-with-login.vercel.app/singin\")\n    pass\n@when('eu faço singup com \"usuario\", \"email\" e \"senha\"')\ndef step_when_eu_preencho_o_formulario_de_cadastro(context):\n    # Implemente a lógica para preencher o formulário de cadastro com o email, senha e confirmação de senha fornecidos\n    texto = loads(context.text)\n    context.driver.find_element(\"id\", \"username\").send_keys(texto[\"usuario\"])\n    context.driver.find_element(\"id\", \"email\").send_keys(texto[\"email\"])",
+        "detail": "features.steps.singup_steps",
+        "documentation": {}
+    },
+    {
+        "label": "step_when_eu_preencho_o_formulario_de_cadastro",
+        "kind": 2,
+        "importPath": "features.steps.singup_steps",
+        "description": "features.steps.singup_steps",
+        "peekOfCode": "def step_when_eu_preencho_o_formulario_de_cadastro(context):\n    # Implemente a lógica para preencher o formulário de cadastro com o email, senha e confirmação de senha fornecidos\n    texto = loads(context.text)\n    context.driver.find_element(\"id\", \"username\").send_keys(texto[\"usuario\"])\n    context.driver.find_element(\"id\", \"email\").send_keys(texto[\"email\"])\n    context.driver.find_element(\"id\", \"password\").send_keys(texto[\"senha\"])\n    context.driver.find_element(\"id\", \"confirmPassword\").send_keys(texto[\"senha\"])\n    context.driver.find_element(\"xpath\", \"//button[@type='submit']\").click()\n    pass\n@then(\"devo ser direcionado para a tela de login\")",
+        "detail": "features.steps.singup_steps",
+        "documentation": {}
+    },
+    {
+        "label": "step_then_devo_ser_direcionado_para_tela_login",
+        "kind": 2,
+        "importPath": "features.steps.singup_steps",
+        "description": "features.steps.singup_steps",
+        "peekOfCode": "def step_then_devo_ser_direcionado_para_tela_login(context):\n    # Implemente a lógica para verificar se a mensagem de cadastro bem-sucedido é exibida\n    # assert if the url changes to login\n    # wait for the page to load\n    time.sleep(2)\n    assert (\n        context.driver.current_url == \"https://next-client-with-login.vercel.app/login\"\n    )\n    pass",
+        "detail": "features.steps.singup_steps",
         "documentation": {}
     },
     {
