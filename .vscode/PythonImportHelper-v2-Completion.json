@@ -125,7 +125,7 @@
         "kind": 2,
         "importPath": "features.steps.create_user_steps",
         "description": "features.steps.create_user_steps",
-        "peekOfCode": "def step_given_que_eu_estou_na_pagina_de_cadastro(context):\n    context.page = CreateUserPage(context.driver)\n    context.page.load()\n    pass\n@when('eu faço singup com \"usuario\", \"email\" e \"senha\"')\ndef step_when_eu_preencho_o_formulario_de_cadastro(context):\n    # Implemente a lógica para preencher o formulário de cadastro com o email, senha e confirmação de senha fornecidos\n    texto = loads(context.text)\n    indice_unico = str(int(time.time()) % 100000)\n    usuario = texto[\"usuario\"] + indice_unico",
+        "peekOfCode": "def step_given_que_eu_estou_na_pagina_de_cadastro(context):\n    context.page = CreateUserPage(context.driver)\n    context.page.load()\n    pass\n@when('eu faço singup com \"usuario\", \"email\" e \"senha\" novos')\ndef step_when_eu_preencho_o_formulario_de_cadastro(context):\n    # Implemente a lógica para preencher o formulário de cadastro com o email, senha e confirmação de senha fornecidos\n    texto = loads(context.text)\n    indice_unico = str(int(time.time()) % 100000)\n    usuario = texto[\"usuario\"] + indice_unico",
         "detail": "features.steps.create_user_steps",
         "documentation": {}
     },
@@ -143,7 +143,25 @@
         "kind": 2,
         "importPath": "features.steps.create_user_steps",
         "description": "features.steps.create_user_steps",
-        "peekOfCode": "def step_then_devo_ser_direcionado_para_tela_login(context):\n    # Implemente a lógica para verificar se a mensagem de cadastro bem-sucedido é exibida\n    # assert if the url changes to login\n    # wait for the page to load\n    time.sleep(2)\n    assert (\n        context.driver.current_url == \"https://next-client-with-login.vercel.app/login\"\n    )\n    pass",
+        "peekOfCode": "def step_then_devo_ser_direcionado_para_tela_login(context):\n    # Implemente a lógica para verificar se a mensagem de cadastro bem-sucedido é exibida\n    # assert if the url changes to login\n    # wait for the page to load\n    time.sleep(2)\n    assert (\n        context.driver.current_url == \"https://next-client-with-login.vercel.app/login\"\n    )\n    pass\n@when(\"eu faço singup com um email já utilizado\")",
+        "detail": "features.steps.create_user_steps",
+        "documentation": {}
+    },
+    {
+        "label": "step_when_eu_faco_login_com_email_e_senha_cadastrados",
+        "kind": 2,
+        "importPath": "features.steps.create_user_steps",
+        "description": "features.steps.create_user_steps",
+        "peekOfCode": "def step_when_eu_faco_login_com_email_e_senha_cadastrados(context):\n    # Implemente a lógica para preencher o formulário de cadastro com o email, senha e confirmação de senha fornecidos\n    form_data = context.pre_created_user\n    context.page.fill_form(**form_data)\n    context.page.submit_form()\n    pass\n@then('devo ver a mensagem \"email já cadastrado\"')\ndef step_then_devo_ver_a_mensagem_email_ja_cadastrado(context):\n    now = time.time()\n    while (",
+        "detail": "features.steps.create_user_steps",
+        "documentation": {}
+    },
+    {
+        "label": "step_then_devo_ver_a_mensagem_email_ja_cadastrado",
+        "kind": 2,
+        "importPath": "features.steps.create_user_steps",
+        "description": "features.steps.create_user_steps",
+        "peekOfCode": "def step_then_devo_ver_a_mensagem_email_ja_cadastrado(context):\n    now = time.time()\n    while (\n        time.time() - now < 5\n        and \"username already\" not in context.page.get_error_message()\n    ):\n        ...\n    assert \"username already\" in context.page.get_error_message()\n    pass",
         "detail": "features.steps.create_user_steps",
         "documentation": {}
     },
@@ -179,7 +197,7 @@
         "kind": 2,
         "importPath": "features.environment",
         "description": "features.environment",
-        "peekOfCode": "def before_all(context):\n    # selenium 4\n    context.driver = webdriver.Firefox(\n        service=FirefoxService(GeckoDriverManager().install())\n    )\n    page = CreateUserPage(context.driver)\n    page.load()\n    page.fill_form(\n        email=\"usuario@cadastrado.com\",\n        usuario=\"usuario\",",
+        "peekOfCode": "def before_all(context):\n    # selenium 4\n    context.driver = webdriver.Firefox(\n        service=FirefoxService(GeckoDriverManager().install())\n    )\n    user = dict(\n        email=\"usuario@cadastrado.com\",\n        usuario=\"usuario\",\n        senha=\"senha123\",\n    )",
         "detail": "features.environment",
         "documentation": {}
     },

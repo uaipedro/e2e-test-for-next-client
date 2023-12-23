@@ -15,13 +15,17 @@ def before_all(context):
         service=FirefoxService(GeckoDriverManager().install())
     )
 
-    page = CreateUserPage(context.driver)
-    page.load()
-    page.fill_form(
+    user = dict(
         email="usuario@cadastrado.com",
         usuario="usuario",
         senha="senha123",
     )
+
+    context.pre_created_user = user
+
+    page = CreateUserPage(context.driver)
+    page.load()
+    page.fill_form(**user)
     page.submit_form()
     now = time.time()
     while time.time() - now < 5:

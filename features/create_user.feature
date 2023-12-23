@@ -2,8 +2,8 @@
 Funcionalidade: Cadastro de Usuário
 
 Cenario: Criar user com sucesso
-        Dado que eu tenho um usuário não cadastrado e estou na pagina de cadastro
-        Quando eu faço singup com "usuario", "email" e "senha"
+        Dado que estou na pagina de cadastro
+        Quando eu faço singup com "usuario", "email" e "senha" novos
             """
             {
                 "usuario": "novo_usuario",
@@ -12,3 +12,8 @@ Cenario: Criar user com sucesso
             }
             """
         Então devo ser direcionado para a tela de login
+
+Cenario: Criar user com email já cadastrado
+        Dado que estou na pagina de cadastro
+        Quando eu faço singup com um email já utilizado
+        Então devo ver a mensagem "email já cadastrado"
