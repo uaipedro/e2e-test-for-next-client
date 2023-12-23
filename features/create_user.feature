@@ -18,6 +18,11 @@ Cenario: Criar user com email já cadastrado
         Quando eu faço singup com um email já utilizado
         Então devo ver a mensagem "email já cadastrado"
 
+Cenario: Criar user sem usuario
+        Dado que estou na pagina de cadastro
+        Quando eu faço singup sem informar usuario(usuario)
+        Então devo ver a mensagem de erro no campo usuario(username)
+
 Cenario: Criar user sem email
         Dado que estou na pagina de cadastro
         Quando eu faço singup sem informar email(email)
