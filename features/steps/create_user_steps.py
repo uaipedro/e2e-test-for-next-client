@@ -84,3 +84,12 @@ def step_then_devo_ver_a_mensagem_de_erro_no_campo(context, campo, field):
 
     assert context.page.get_input_validation_message(field)
     pass
+
+
+@when("eu faço eu faço singup com {campo}({field}) menor que {n} caracteres")
+def step_when_eu_faco_singup_com_campo_menor_que_n_caracteres(context, campo, field, n):
+    form_data = {**context.pre_created_user}
+    form_data[campo] = form_data[campo][: int(n) - 1]
+    context.page.fill_form(**form_data)
+    context.page.submit_form()
+    pass

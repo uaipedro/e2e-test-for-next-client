@@ -179,7 +179,16 @@
         "kind": 2,
         "importPath": "features.steps.create_user_steps",
         "description": "features.steps.create_user_steps",
-        "peekOfCode": "def step_then_devo_ver_a_mensagem_de_erro_no_campo(context, campo, field):\n    now = time.time()\n    while time.time() - now < 5 and not context.page.get_input_validation_message(\n        field\n    ):\n        ...\n    assert context.page.get_input_validation_message(field)\n    pass",
+        "peekOfCode": "def step_then_devo_ver_a_mensagem_de_erro_no_campo(context, campo, field):\n    now = time.time()\n    while time.time() - now < 5 and not context.page.get_input_validation_message(\n        field\n    ):\n        ...\n    assert context.page.get_input_validation_message(field)\n    pass\n@when(\"eu faço eu faço singup com {campo}({field}) menor que {n} caracteres\")\ndef step_when_eu_faco_singup_com_campo_menor_que_n_caracteres(context, campo, field, n):",
+        "detail": "features.steps.create_user_steps",
+        "documentation": {}
+    },
+    {
+        "label": "step_when_eu_faco_singup_com_campo_menor_que_n_caracteres",
+        "kind": 2,
+        "importPath": "features.steps.create_user_steps",
+        "description": "features.steps.create_user_steps",
+        "peekOfCode": "def step_when_eu_faco_singup_com_campo_menor_que_n_caracteres(context, campo, field, n):\n    form_data = {**context.pre_created_user}\n    form_data[campo] = form_data[campo][: int(n) - 1]\n    context.page.fill_form(**form_data)\n    context.page.submit_form()\n    pass",
         "detail": "features.steps.create_user_steps",
         "documentation": {}
     },

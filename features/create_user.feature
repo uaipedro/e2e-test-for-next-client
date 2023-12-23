@@ -32,3 +32,13 @@ Cenario: Criar user sem senha
         Dado que estou na pagina de cadastro
         Quando eu faço singup sem informar senha(password)
         Então devo ver a mensagem de erro no campo senha(password)
+
+Cenario: Criar user com senha menor que 8 caracteres
+        Dado que estou na pagina de cadastro
+        Quando eu faço eu faço singup com senha(password) menor que 8 caracteres
+        Então devo ver a mensagem de erro no campo senha(password)
+
+Cenario: Criar user com username menor que 3 caracteres
+        Dado que estou na pagina de cadastro
+        Quando eu faço eu faço singup com usuario(username) menor que 3 caracteres
+        Então devo ver a mensagem de erro no campo usuario(username)
