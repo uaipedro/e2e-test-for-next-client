@@ -161,7 +161,25 @@
         "kind": 2,
         "importPath": "features.steps.create_user_steps",
         "description": "features.steps.create_user_steps",
-        "peekOfCode": "def step_then_devo_ver_a_mensagem_email_ja_cadastrado(context):\n    now = time.time()\n    while (\n        time.time() - now < 5\n        and \"username already\" not in context.page.get_error_message()\n    ):\n        ...\n    assert \"username already\" in context.page.get_error_message()\n    pass",
+        "peekOfCode": "def step_then_devo_ver_a_mensagem_email_ja_cadastrado(context):\n    now = time.time()\n    while (\n        time.time() - now < 5\n        and \"username already\" not in context.page.get_error_message()\n    ):\n        ...\n    assert \"username already\" in context.page.get_error_message()\n    pass\n@when(\"eu faço singup sem informar {campo}({field})\")",
+        "detail": "features.steps.create_user_steps",
+        "documentation": {}
+    },
+    {
+        "label": "step_when_eu_faco_singup_sem_informar_o_campo",
+        "kind": 2,
+        "importPath": "features.steps.create_user_steps",
+        "description": "features.steps.create_user_steps",
+        "peekOfCode": "def step_when_eu_faco_singup_sem_informar_o_campo(context, campo, field):\n    # Implemente a lógica para preencher o formulário de cadastro sem o email\n    form_data = {**context.pre_created_user}\n    form_data[campo] = \"\"\n    context.page.fill_form(**form_data)\n    context.page.submit_form()\n    pass\n@then(\"devo ver a mensagem de erro no campo {campo}({field})\")\ndef step_then_devo_ver_a_mensagem_de_erro_no_campo(context, campo, field):\n    now = time.time()",
+        "detail": "features.steps.create_user_steps",
+        "documentation": {}
+    },
+    {
+        "label": "step_then_devo_ver_a_mensagem_de_erro_no_campo",
+        "kind": 2,
+        "importPath": "features.steps.create_user_steps",
+        "description": "features.steps.create_user_steps",
+        "peekOfCode": "def step_then_devo_ver_a_mensagem_de_erro_no_campo(context, campo, field):\n    now = time.time()\n    while time.time() - now < 5 and not context.page.get_input_validation_message(\n        field\n    ):\n        ...\n    assert context.page.get_input_validation_message(field)\n    pass",
         "detail": "features.steps.create_user_steps",
         "documentation": {}
     },

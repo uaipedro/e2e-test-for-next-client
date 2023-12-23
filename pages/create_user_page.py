@@ -23,3 +23,11 @@ class CreateUserPage:
             return self.driver.find_element("css selector", ".error").text.lower()
         except Exception:
             return ""
+
+    def get_input_validation_message(self, field_name):
+        try:
+            return self.driver.find_element(
+                "xpath", f"//input[@id='{field_name}']"
+            ).get_attribute("validationMessage")
+        except Exception:
+            return ""

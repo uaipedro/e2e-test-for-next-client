@@ -62,3 +62,25 @@ def step_then_devo_ver_a_mensagem_email_ja_cadastrado(context):
 
     assert "username already" in context.page.get_error_message()
     pass
+
+
+@when("eu faço singup sem informar {campo}({field})")
+def step_when_eu_faco_singup_sem_informar_o_campo(context, campo, field):
+    # Implemente a lógica para preencher o formulário de cadastro sem o email
+    form_data = {**context.pre_created_user}
+    form_data[campo] = ""
+    context.page.fill_form(**form_data)
+    context.page.submit_form()
+    pass
+
+
+@then("devo ver a mensagem de erro no campo {campo}({field})")
+def step_then_devo_ver_a_mensagem_de_erro_no_campo(context, campo, field):
+    now = time.time()
+    while time.time() - now < 5 and not context.page.get_input_validation_message(
+        field
+    ):
+        ...
+
+    assert context.page.get_input_validation_message(field)
+    pass
