@@ -197,7 +197,7 @@
         "kind": 2,
         "importPath": "features.steps.login_steps",
         "description": "features.steps.login_steps",
-        "peekOfCode": "def step_when_eu_faco_login_com_email_e_senha(context, email, senha):\n    texto = loads(context.text)\n    context.driver.find_element(\"id\", \"email\").send_keys(texto[\"email\"])\n    context.driver.find_element(\"id\", \"password\").send_keys(texto[\"senha\"])\n    context.driver.find_element(\"xpath\", \"//button[@type='submit']\").click()\n    time.sleep(1)\n    pass\n@then(\"devo ver mensagem de boas vindas que contenha {message}\")\ndef step_then_devo_ver_mensagem_de_boas_vindas(context, message):\n    welcome_message = context.driver.find_element(\"xpath\", \"//h2\").text.lower()",
+        "peekOfCode": "def step_when_eu_faco_login_com_email_e_senha(context, email, senha):\n    texto = loads(context.text)\n    context.driver.find_element(\"id\", \"email\").send_keys(texto[\"email\"])\n    context.driver.find_element(\"id\", \"password\").send_keys(texto[\"senha\"])\n    context.driver.find_element(\"xpath\", \"//button[@type='submit']\").click()\n    time.sleep(1)\n    pass\n@then('devo ver mensagem de boas vindas que contenha \"{message}\"')\ndef step_then_devo_ver_mensagem_de_boas_vindas(context, message):\n    welcome_message = context.driver.find_element(\"xpath\", \"//h2\").text.lower()",
         "detail": "features.steps.login_steps",
         "documentation": {}
     },
@@ -206,7 +206,7 @@
         "kind": 2,
         "importPath": "features.steps.login_steps",
         "description": "features.steps.login_steps",
-        "peekOfCode": "def step_then_devo_ver_mensagem_de_boas_vindas(context, message):\n    welcome_message = context.driver.find_element(\"xpath\", \"//h2\").text.lower()\n    TestCase().assertIn(message.lower().replace('\"', \"\"), welcome_message)\n    pass",
+        "peekOfCode": "def step_then_devo_ver_mensagem_de_boas_vindas(context, message):\n    welcome_message = context.driver.find_element(\"xpath\", \"//h2\").text.lower()\n    TestCase().assertIn(message.lower(), welcome_message)\n    pass",
         "detail": "features.steps.login_steps",
         "documentation": {}
     },

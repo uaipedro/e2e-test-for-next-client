@@ -20,7 +20,7 @@ Cenario: Criar user com email já cadastrado
 
 Cenario: Criar user sem usuario
         Dado que estou na pagina de cadastro
-        Quando eu faço singup sem informar usuario(usuario)
+        Quando eu faço singup sem informar usuario(username)
         Então devo ver a mensagem de erro no campo usuario(username)
 
 Cenario: Criar user sem email

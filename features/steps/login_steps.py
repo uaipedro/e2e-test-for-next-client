@@ -22,8 +22,8 @@ def step_when_eu_faco_login_com_email_e_senha(context, email, senha):
     pass
 
 
-@then("devo ver mensagem de boas vindas que contenha {message}")
+@then('devo ver mensagem de boas vindas que contenha "{message}"')
 def step_then_devo_ver_mensagem_de_boas_vindas(context, message):
     welcome_message = context.driver.find_element("xpath", "//h2").text.lower()
-    TestCase().assertIn(message.lower().replace('"', ""), welcome_message)
+    TestCase().assertIn(message.lower(), welcome_message)
     pass
