@@ -1,7 +1,11 @@
 # selenium 4
+import time
+
 from selenium import webdriver
 from selenium.webdriver.firefox.service import Service as FirefoxService
 from webdriver_manager.firefox import GeckoDriverManager
+
+from pages.create_user_page import CreateUserPage
 
 
 def before_all(context):
@@ -10,6 +14,27 @@ def before_all(context):
     context.driver = webdriver.Firefox(
         service=FirefoxService(GeckoDriverManager().install())
     )
+
+    page = CreateUserPage(context.driver)
+    page.load()
+    page.fill_form(
+        email="usuario@cadastrado.com",
+        usuario="usuario",
+        senha="senha123",
+    )
+    page.submit_form()
+    now = time.time()
+    while time.time() - now < 5:
+        if (
+            "https://next-client-with-login.vercel.app/login"
+            in context.driver.current_url
+            or "username already" in page.get_error_message()
+        ):
+            return
+
+    import ipdb
+
+    ipdb.sset_trace()
 
 
 def before_scenario(context, scenario):
